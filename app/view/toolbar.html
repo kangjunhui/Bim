@@ -1,0 +1,188 @@
+<!-- 属性 -->
+<div id="propertyInfo" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#propertyInfo').toggle();"> <i class="fa fa-times fa-2x"
+          style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-exclamation-circle"></i> 属性</h4>
+  </div>
+  <!-- end panel-heading -->
+  <!-- begin panel-body -->
+  <div class="panel-body">
+    <!-- begin table-responsive -->
+    <div class="table-responsive propertyInfoContainer">
+      <table class="table m-b-0">
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>值</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </div>
+  <!-- end panel-body -->
+</div>
+<!-- 漫游 -->
+<div id="roam" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#roam').toggle();"> <i class="fa fa-times fa-2x" style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-paper-plane"></i> 漫游控制</h4>
+  </div>
+  <!-- end panel-heading -->
+  <div class="panel-body panel-form">
+    <hr style="margin:5px;">
+    <div class="padding-10 input-group">
+      <label class="switch switch-default switch-round">
+        <input type="checkbox" unchecked id="groundShadow">
+        <span class="switch-label" data-on="YES" data-off="NO"></span>
+        <span class="m-b-2 text-inverse f-w-600 f-s-16">地面阴影</span>
+      </label>
+    </div>
+    <hr style="margin:5px;">
+    <div class="padding-10 input-group">
+      <label class="switch switch-default switch-round">
+        <input type="checkbox" unchecked id="pointOnly">
+        <span class="switch-label" data-on="YES" data-off="NO"></span>
+        <span class="m-b-2 text-inverse f-w-600 f-s-16">测点模式</span>
+      </label>
+    </div>
+    <hr style="margin:5px;">
+    <div class="padding-10 input-group">
+      <label class="switch switch-default switch-round">
+        <input type="checkbox" id="boomModel" unchecked>
+        <span class="switch-label" data-on="YES" data-off="NO"></span>
+        <span class="m-b-2 text-inverse f-w-600 f-s-16">爆炸模式</span>
+      </label>
+    </div>
+    <div class="list-item-font padding-10">
+      <div class="slider-wrapper black-slider">
+        <div id="boomModelSlider"></div>
+      </div>
+    </div>
+    <div id="cameraPanSpeed" class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label for="cameraPanValue" class="m-b-2 text-inverse f-w-600 f-s-16">相机平移速度（倍数）</label>
+        <input type="text" id="cameraPanValue" class="form-control">
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="cameraPanSlider"></div>
+      </div>
+    </div>
+    <div id="cameraZoomSpeed" class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label for="cameraZoomValue" class="m-b-2 text-inverse f-w-600 f-s-16">相机缩放速度（倍数）</label>
+        <input type="text" id="cameraZoomValue" class="form-control">
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="cameraZoomSlider"></div>
+      </div>
+    </div>
+    <div id="cameraRotateSpeed" class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label for="cameraRotateValue" class="m-b-2 text-inverse f-w-600 f-s-16">相机旋转速度（倍数）</label>
+        <input type="text" id="cameraRotateValue" class="form-control">
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="cameraRotateSlider"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 框选构件 -->
+<div id="rectSelect" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#rectSelect').toggle();"> <i class="fa fa-times fa-2x" style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-exclamation-circle"></i> 框选</h4>
+  </div>
+  <!-- end panel-heading -->
+  <!-- begin panel-body -->
+  <div class="panel-body">
+    <!-- begin table-responsive -->
+    <div class="table-responsive propertyInfoContainer">
+      <table class="table m-b-0">
+        <thead>
+          <tr>
+            <th class="with-checkbox">
+              <div class="checkbox checkbox-css">
+                <input type="checkbox" value="" id="rectSelectCheck" checked />
+                <label for="rectSelectCheck">&nbsp;</label>
+              </div>
+            </th>
+            <th>族类型</th>
+            <th>族个数</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </div>
+  <!-- end panel-body -->
+</div>
+<!-- 文件上传 -->
+<div id="uploadFile" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#uploadFile').toggle();"> <i class="fa fa-times fa-2x" style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-file-excel"></i> 文件上传</h4>
+  </div>
+  <!-- end panel-heading -->
+  <!-- begin panel-body -->
+  <div class="panel-body">
+    <div class="custom-file">
+      <input id="fileId" type="file" class="custom-file-input">
+      <label class="custom-file-label" for="fileId">选择一个文件</label>
+    </div>
+    <label for="sendFile" style="
+    margin-top: 16px;
+    margin-left: 123px;
+">
+      <button type="button" class="btn btn-success" id="sendFile">上传文件</button>
+    </label>
+  </div>
+</div>
+<!-- end panel-body -->
+</div>
+<!-- 地下水模式 -->
+<div id="waterMode" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#waterMode').toggle(); resetWaterTable()"> <i class="fa fa-times fa-2x" style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-tint"></i> 地下水</h4>
+  </div>
+  <!-- end panel-heading -->
+  <!-- begin panel-body -->
+  <div class="panel-body">
+    <!-- begin table-responsive -->
+    <div class="table-responsive propertyInfoContainer">
+      <table class="table m-b-0">
+        <thead>
+          <tr>
+            <th>地层名</th>
+            <th>地下水类型</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </div>
+  <!-- end panel-body -->
+</div>

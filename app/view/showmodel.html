@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="charset=utf-8" />
+    <title>顺凯BIM | 模型展示</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no" />
+    <link href="../public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- THEME CSS -->
+    <link rel="stylesheet" href="../public/plugins/font-awesome/css/all.min.css">
+    <link href="../public/sdk/third/css/essentials.css" rel="stylesheet" />
+    <link href="../public/sdk/viz/ui/default.css" rel="stylesheet" type="text/css" />
+    <link href="../public/sdk/third/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+    <link href="../public/sdk/third/toolbar/jquery.toolbar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../public/css/default/style.min.css">
+    <link href="../public/plugins/animate/animate.min.css" rel="stylesheet" />
+    <link href="../public/css/default/style-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../public/css/showmodel/showmodel.css">
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="../public/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+
+
+</head>
+
+<body>
+    <div>
+        <div class="nav-logo">
+            <a href="#">顺凯模型展示</a>
+        </div>
+        <!-- <div class="nav-prjName">
+            <span>深隧整体模型</span>
+        </div> -->
+        <div id="viewport"> </div>
+        <div id="messages"></div>
+        <div id='toolbarDiv' class="toolbarDiv" style="display: none">
+            <i style="color:#00acac;cursor: pointer" id="propertyBtn" class="fa fa-info fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="属性"></i>&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="roamBtn" class="fa fa-paper-plane fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="漫游"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="riskBtn" class="fa fa-exclamation-triangle fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="风险"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="waterBtn" class="fa fa-tint fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="高压水"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <!-- 工具栏 -->
+        <% include toolbar.html %>
+    </div>
+
+    <script src="../public/plugins/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../public/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../public/sdk/third/jquery-dialog.js"></script>
+    <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/sdk/third/jquery-slider/jquery-ui-slider-pips.min.js"></script>
+    <script src="../public/sdk/third/toolbar/jquery.toolbar.js"></script>
+    <script src="../public/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../public/plugins/bootstrap-sweetalert/sweetalert.min.js"></script>
+    <script src="../public/js/theme/default.min.js"></script>
+    <script src="../public/plugins/js-cookie/js.cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <!-- bim js -->
+    <script src="../public/sdk/viz/bimviz.js"></script>
+    <script src="../public/sdk/viz/ui/DefaultMessageControl.js"></script>
+    <script src="../public/js/skBim.js"></script>
+    <script src="../public/js/skBim/common/water.js"></script>
+    <script src="../public/js/skBim/common/Model.js"></script>
+    <script src="../public/js/skBim/common/propertyBtn.js"></script>
+    <script src="../public/js/skBim/common/roamBtn.js"></script>
+    <script src="../public/js/skBim/common/keyBoardEvent.js"></script>
+    <script src="../public/js/skBim/common/socket.js"></script>
+    <script src="../public/js/skBim/common/htmlMarker.js"></script>
+    <script src="../public/js/skBim/common/controlModel.js"></script>
+    <script src="../public/js/skBim/common/uploadFile.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/staticData.js"></script>
+    <script>
+        const projId = '<%= projId %>'
+        const monitorPort = '<%= monitorPort %>'
+        $(function () {
+            skBim.init()
+            bsCustomFileInput.init()
+        })
+    </script>
+</body>
+
+</html>

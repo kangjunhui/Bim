@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>顺凯BIM | 创建模型</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="顺凯BIM" name="description" />
+    <meta content="QiuJH" name="author" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="../public/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../public/plugins/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="../public/plugins/animate/animate.min.css" rel="stylesheet" />
+    <link href="../public/css/default/style.min.css" rel="stylesheet" />
+    <link href="../public/css/default/style-responsive.min.css" rel="stylesheet" />
+    <link href="../public/css/default/theme/default.css" rel="stylesheet" id="theme" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="../public/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+</head>
+
+<body class="pace-top">
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade show"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade">
+        <!-- begin login -->
+        <div class="login bg-black animated fadeInDown">
+            <!-- begin brand -->
+            <div class="login-header">
+                <div class="brand">
+                    <b>顺凯</b> BIM
+                    <small>bim模型创建平台</small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-lock"></i>
+                </div>
+            </div>
+            <!-- end brand -->
+            <!-- begin login-content -->
+            <div class="login-content">
+                <form class="margin-bottom-0">
+                    <div class="form-group m-b-20">
+                        <input id="proName" type="text" class="form-control form-control-lg inverse-mode"
+                            placeholder="项目名称" name="proName" required />
+                    </div>
+                    <div class="form-group m-b-20">
+                        <input id="proDesc" type="text" class="form-control form-control-lg inverse-mode"
+                            placeholder="项目描述" name="proDesc" required />
+                    </div>
+                    <div class="login-buttons">
+                        <button type="button" class="btn btn-success btn-block btn-lg">创建项目</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end login-content -->
+        </div>
+        <!-- end login -->
+    </div>
+    <!-- end page container -->
+
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="../public/plugins/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../public/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--[if lt IE 9]>
+		<script src="../public/crossbrowserjs/html5shiv.js"></script>
+		<script src="../public/crossbrowserjs/respond.min.js"></script>
+		<script src="../public/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+    <script src="../public/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../public/plugins/js-cookie/js.cookie.js"></script>
+    <script src="../public/js/theme/default.min.js"></script>
+    <script src="../public/js/apps.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <script src="../public/sdk/viz/bimviz.js"></script>
+    <script src="../public/sdk/viz/restapi/modelprojectmanager.js"></script>
+    <script src="../public/sdk/viz/restapi/projectbuildmanager.js"></script>
+    <script src="../public/sdk/viz/restapi/BimVizWebApi.js"></script>
+    <script src="../public/js/skBim/common/createModel.js"></script>
+    <script>
+        $(document).ready(function () {
+            App.init()
+        })
+    </script>
+</body>
+
+</html>

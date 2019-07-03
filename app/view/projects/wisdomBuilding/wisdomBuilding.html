@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="charset=utf-8" />
+    <title>顺凯BIM | 模型展示</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no" />
+    <link href="../public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- THEME CSS -->
+    <link rel="stylesheet" href="../public/plugins/font-awesome/css/all.min.css">
+    <link href="../public/sdk/third/css/essentials.css" rel="stylesheet" />
+    <link href="../public/sdk/viz/ui/default.css" rel="stylesheet" type="text/css" />
+    <link href="../public/sdk/third/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+    <link href="../public/sdk/third/toolbar/jquery.toolbar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../public/css/default/style.min.css">
+    <link href="../public/plugins/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="../public/plugins/animate/animate.min.css" rel="stylesheet" />
+    <link href="../public/css/default/style-responsive.min.css" rel="stylesheet" />
+    <link href="../public/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../public/css/showmodel/showmodel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="../public/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+
+
+</head>
+<script>
+    const projId = '<%= projId %>'
+    const monitorPort = '<%= monitorPort %>'
+</script>
+
+<body>
+    <div>
+        <div class="nav-logo">
+            <a href="/">智慧楼宇</a>
+        </div>
+        <div class="nav-prjName">
+            <span>上勘大厦</span>
+        </div>
+        <div id="viewport"> </div>
+        <div id="messages"></div>
+        <div id='toolbarDiv' class="toolbarDiv" style="display: none">
+            <i style="color:#00acac;cursor: pointer" id="propertyBtn" class="fa fa-info fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="查看属性"></i>&nbsp;&nbsp;
+            <!-- <i style="color:#00acac;cursor: pointer" id="roamBtn" class="fa fa-paper-plane fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="模型漫游"></i>&nbsp;&nbsp;&nbsp;&nbsp;          
+            <i style="color:#00acac;cursor: pointer" id="chartBtn" class="fa fa-bar-chart fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="监测曲线"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="riskBtn" class="fa fa-exclamation-triangle fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="风险树"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="waterBtn" class="fa fa-tint fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="查看高压水"></i>&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <i style="color:#00acac;cursor: pointer" id="treeBtn" class="fa fa-tree fa-3x btnTool" data-toggle="tooltip"
+                data-trigger="hover" data-title="监测树"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <i style="color:#00acac;cursor: pointer" id="structureBtn" class="fa fa-sitemap fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover"
+                data-title="结构树"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <i style="color:#00acac;cursor: pointer" id="sectionBtn" class="fa fa-columns fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="剖切"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="floorBtn" class="fa fa-university fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="楼层" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="videoBtn" class="fa fa-film fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="监控"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="waterBtn" class="fa fa-tint fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="水"></i>&nbsp;
+            <i style="color:#00acac;cursor: pointer" id="electricityBtn" class="fa fa-flash fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="电"></i>
+            <i style="color:#00acac;cursor: pointer" id="temperatureBtn" class="fa fa-thermometer-half fa-3x btnTool"
+                data-toggle="tooltip" data-trigger="hover" data-title="温度"></i>
+        </div>
+        <!-- chart -->
+        <div id="chart" style="background-color:rgba(0,0,0,0)">
+            <canvas id="chartId"></canvas>
+        </div>
+        <div class="chart_select">
+            <div class="chart_select_content">
+                <label>曲线类型 :</label>
+                <select class="custom-select" id="chart_select">
+                    <option value="1">累计变化</option>
+                    <option value="2">本次变化</option>
+                    <option value="3">变化速率</option>
+                </select>
+                <label class="label-datepicker">选择日期 :</label>
+                <div class="div-datepicker">
+                    <div class="input-group input-daterange">
+                        <input type="text" style="height: 28px" class="form-control" name="start">
+                        <span style="line-height: 15px" class="input-group-addon">至</span>
+                        <input type="text" style="height: 28px" class="form-control" name="end">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- 工具栏 -->
+        <% include toolbar.html %>
+
+    </div>
+    <script src="../public/plugins/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../public/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../public/sdk/third/jquery-dialog.js"></script>
+    <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/sdk/third/jquery-slider/jquery-ui-slider-pips.min.js"></script>
+    <script src="../public/sdk/third/toolbar/jquery.toolbar.js"></script>
+    <script src="../public/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../public/js/theme/default.min.js"></script>
+    <script src="../public/js/apps.min.js"></script>
+    <script src="../public/plugins/js-cookie/js.cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/zh-cn.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    <script src="../public/plugins/bootstrap-sweetalert/sweetalert.min.js"></script>
+    <script src="../public/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="../public/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script src="../public/plugins/echarts/echarts.js"></script>
+
+    <!-- bim js -->
+    <script src="../public/sdk/viz/bimviz.js"></script>
+    <script src="../public/sdk/viz/ui/DefaultMessageControl.js"></script>
+    <script src="../public/js/skBim.js"></script>
+    <script src="../public/js/skBim/common/controlModel.js"></script>
+    <script src="../public/js/skBim/common/Model.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/propertyBtn.js"></script>
+    <script src="../public/js/skBim/common/roamBtn.js"></script>
+    <script src="../public/js/skBim/common/keyBoardEvent.js"></script>
+    <script src="../public/js/skBim/common/socket.js"></script>
+    <script src="../public/js/skBim/common/htmlMarker.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/treeBtn.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/chartBtn.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/structureBtn.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/staticData.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/modelToTree.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/riskBtn.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/water.js"></script>
+    <script src="../public/js/skBim/projects/shenshui/sectionBtn.js"></script>
+    <script src="../public/js/skBim/projects/wisdomBuilding/floorBtn.js"></script>
+    <script src="../public/js/skBim/projects/wisdomBuilding/videoBtn.js"></script>
+    <script src="../public/js/skBim/projects/wisdomBuilding/treeBtn.js"></script>
+    <script src="../public/js/skBim/projects/wisdomBuilding/waterBtn.js"></script>
+    <script src="../public/js/skBim/projects/wisdomBuilding/electricityBtn.js"></script>
+    <script src="../public/js/skBim/projects/wisdomBuilding/temperatureBtn.js"></script>
+    <!--<script src="../public/js/skBim/projects/wisdomBuilding/bulidingPage.js"></script>-->
+
+    <script>
+        $(function () {
+            App.init()
+            skBim.init()
+        })
+    </script>
+</body>
+
+</html>

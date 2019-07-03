@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>顺凯BIM | 演示平台</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="../public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../public/plugins/font-awesome/css/all.min.css" rel="stylesheet" />
+	<link href="../public/plugins/animate/animate.min.css" rel="stylesheet" />
+	<link href="../public/css/one-page-parallax/style.min.css" rel="stylesheet" />
+	<link href="../public/css/one-page-parallax/style-responsive.min.css" rel="stylesheet" />
+	<link href="../public/css/one-page-parallax/theme/default.css" id="theme" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="../public/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+</head>
+<body data-spy="scroll" data-target="#header" data-offset="51">
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade">
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container -->
+			<div class="container">
+				<!-- begin navbar-header -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="/index" class="navbar-brand">
+						<span class="brand-logo"></span>
+						<span class="brand-text">
+							<span class="text-theme">SK</span> BIM
+						</span>
+					</a>
+				</div>
+				<!-- end navbar-header -->
+				<!-- begin navbar-collapse -->
+				<div class="collapse navbar-collapse" id="header-navbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="nav-item"><a class="nav-link"><%= current_user.name%></a></li>
+						<li class="nav-item"><a class="nav-link" href="signout" >退出</a></li>
+					</ul>
+				</div>
+				<!-- end navbar-collapse -->
+			</div>
+			<!-- end container -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #home -->
+		<div id="home" class="content has-bg home">
+			<!-- begin content-bg -->
+			<div class="content-bg" style="background-image: url(../public/img/bg/bg-bim.jpg);" 
+				data-paroller="true" 
+				data-paroller-factor="0.5"
+				data-paroller-factor-xs="0.25">
+			</div>
+			<!-- end content-bg -->
+			<!-- begin container -->
+			<div class="container home-content">
+				<h1>BIM模型及项目演示平台</h1>
+				<h3>Multipurpose One Page Theme</h3>
+				<p>
+					We have created a multi-purpose theme that take the form of One-Page or Multi-Page Version.<br />
+					Use our <a href="#">theme panel</a> to select your favorite theme color.
+				</p>
+				<a href="/model" target="_blank" class="btn btn-theme">浏览模型</a> <a href="/project" target="_blank"  class="btn btn-outline">浏览项目</a><br />
+			</div>
+			<!-- end container -->
+		</div>
+		<!-- end #home -->
+		
+		<!-- begin #footer -->
+		<div id="footer" class="footer">
+			<div class="container">
+				<p>
+					&copy; Copyright Color Admin 2019 <br />
+					An admin & front end theme with serious impact. Created by <a href="#">SeanTheme</a>
+				</p>
+			</div>
+		</div>
+		<!-- end #footer -->
+	</div>
+	<!-- end #page-container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="../public/plugins/jquery/jquery-3.3.1.min.js"></script>
+	<script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="../public/crossbrowserjs/html5shiv.js"></script>
+		<script src="../public/crossbrowserjs/respond.min.js"></script>
+		<script src="../public/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="../public/plugins/js-cookie/js.cookie.js"></script>
+	<script src="../public/plugins/scrollMonitor/scrollMonitor.js"></script>
+	<script src="../public/plugins/paroller/jquery.paroller.min.js"></script>
+	<script src="../public/js/one-page-parallax/apps.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<script>    
+		$(document).ready(function() {
+			App.init();
+		});
+	</script>
+</body>
+</html>

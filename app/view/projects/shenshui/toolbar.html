@@ -1,0 +1,386 @@
+<!-- 属性 -->
+<div id="propertyInfo" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#propertyInfo').toggle();"> <i class="fa fa-times fa-2x"
+          style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-exclamation-circle"></i> 属性</h4>
+  </div>
+  <!-- end panel-heading -->
+  <!-- begin panel-body -->
+  <div class="panel-body">
+    <!-- begin table-responsive -->
+    <div class="table-responsive propertyInfoContainer">
+      <table class="table m-b-0">
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>值</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </div>
+  <!-- end panel-body -->
+</div>
+<!-- 漫游 -->
+<div id="roam" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#roam').toggle();"> <i class="fa fa-times fa-2x" style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-paper-plane"></i> 漫游控制</h4>
+  </div>
+  <!-- end panel-heading -->
+  <div class="panel-body panel-form">
+    <hr style="margin:5px;">
+    <div class="padding-10 input-group">
+      <label class="switch switch-default switch-round">
+        <input type="checkbox" unchecked id="groundShadow">
+        <span class="switch-label" data-on="YES" data-off="NO"></span>
+        <span class="m-b-2 text-inverse f-w-600 f-s-16">地面阴影</span>
+      </label>
+    </div>
+    <hr style="margin:5px;">
+    <div class="padding-10 input-group">
+      <label class="switch switch-default switch-round">
+        <input type="checkbox" unchecked id="pointOnly">
+        <span class="switch-label" data-on="YES" data-off="NO"></span>
+        <span class="m-b-2 text-inverse f-w-600 f-s-16">测点模式</span>
+      </label>
+    </div>
+    <hr style="margin:5px;">
+    <div class="padding-10 input-group">
+      <label class="switch switch-default switch-round">
+        <input type="checkbox" id="boomModel" unchecked>
+        <span class="switch-label" data-on="YES" data-off="NO"></span>
+        <span class="m-b-2 text-inverse f-w-600 f-s-16">爆炸模式</span>
+      </label>
+    </div>
+    <div class="list-item-font padding-10">
+      <div class="slider-wrapper black-slider">
+        <div id="boomModelSlider"></div>
+      </div>
+    </div>
+    <div id="cameraPanSpeed" class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label for="cameraPanValue" class="m-b-2 text-inverse f-w-600 f-s-16">相机平移速度（倍数）</label>
+        <input type="text" id="cameraPanValue" class="form-control">
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="cameraPanSlider"></div>
+      </div>
+    </div>
+    <div id="cameraZoomSpeed" class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label for="cameraZoomValue" class="m-b-2 text-inverse f-w-600 f-s-16">相机缩放速度（倍数）</label>
+        <input type="text" id="cameraZoomValue" class="form-control">
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="cameraZoomSlider"></div>
+      </div>
+    </div>
+    <div id="cameraRotateSpeed" class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label for="cameraRotateValue" class="m-b-2 text-inverse f-w-600 f-s-16">相机旋转速度（倍数）</label>
+        <input type="text" id="cameraRotateValue" class="form-control">
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="cameraRotateSlider"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 框选构件 -->
+<div id="rectSelect" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#rectSelect').toggle();"> <i class="fa fa-times fa-2x" style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-exclamation-circle"></i> 框选</h4>
+  </div>
+  <!-- end panel-heading -->
+  <!-- begin panel-body -->
+  <div class="panel-body">
+    <!-- begin table-responsive -->
+    <div class="table-responsive propertyInfoContainer">
+      <table class="table m-b-0">
+        <thead>
+          <tr>
+            <th class="with-checkbox">
+              <div class="checkbox checkbox-css">
+                <input type="checkbox" value="" id="rectSelectCheck" checked />
+                <label for="rectSelectCheck">&nbsp;</label>
+              </div>
+            </th>
+            <th>族类型</th>
+            <th>族个数</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </div>
+  <!-- end panel-body -->
+</div>
+<!-- 测点树 -->
+<div id="tree" class="panel panel-inverse">
+  <div class="panel-heading">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#tree').toggle()"> <i class="fa fa-times fa-2x" style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-tree"></i> 测点树</h4>
+  </div>
+  <div class="panel-body">
+    <!-- begin nav-pills -->
+    <ul class="nav nav-pills" id="treeTab" style="padding-left: 36px;">
+      <li class="nav-items">
+        <a href="#typeTree" data-toggle="tab" class="nav-link active">
+          <span class="d-sm-block d-none">监测指标</span>
+        </a>
+      </li>
+      <li class="nav-items">
+        <a href="#objTree" data-toggle="tab" class="nav-link">
+          <span class="d-sm-block d-none">监测对象</span>
+        </a>
+      </li>
+    </ul>
+    <!-- end nav-pills -->
+    <!-- begin tab-content -->
+    <div class="tab-content" style="margin-top: -15px; margin-bottom: -15px;">
+      <div class="tab-pane fade table-responsive treeContainer show active" id="typeTree">
+      </div>
+      <div class="tab-pane fade table-responsive treeContainer" id="objTree">
+      </div>
+    </div>
+    <!-- end tab-content -->
+  </div>
+</div>
+<!-- 风险地层列表 -->
+<div id="risk" class="panel panel-inverse">
+  <div class="panel-heading">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#risk').hide();$('#riskInfo').hide()"> <i class="fa fa-times fa-2x"
+          style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-exclamation-triangle"></i> 地质风险</h4>
+  </div>
+  <div class="panel-body">
+    <!-- begin nav-pills -->
+    <ul class="nav nav-pills" style=" margin-left: 36px;">
+      <li class="nav-items">
+        <a href="#stratumTree" data-toggle="tab" class="nav-link active">
+          <span class="d-sm-block d-none">地层对象</span>
+        </a>
+      </li>
+      <li class="nav-items">
+        <a href="#projectTree" data-toggle="tab" class="nav-link">
+          <span class="d-sm-block d-none">工程对象</span>
+        </a>
+      </li>
+    </ul>
+    <!-- end nav-pills -->
+    <!-- begin tab-content -->
+    <div class="tab-content" style="margin-top: -15px; margin-bottom: -15px;">
+      <div class="tab-pane fade show active table-responsive treeContainer" id="stratumTree">
+      </div>
+      <div class="tab-pane fade table-responsive treeContainer" id="projectTree">
+      </div>
+    </div>
+    <!-- end tab-content -->
+  </div>
+</div>
+<!-- 风险信息 -->
+<div id="riskInfo" class="card-accordion">
+</div>
+<!-- 地下水模式 -->
+<div id="waterMode" class="panel panel-inverse">
+  <!-- begin panel-heading -->
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#waterMode').toggle(); resetWaterTable()"> <i class="fa fa-times fa-2x"
+          style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-tint"></i> 地下水</h4>
+  </div>
+  <!-- end panel-heading -->
+  <!-- begin panel-body -->
+  <div class="panel-body">
+    <!-- begin table-responsive -->
+    <div class="table-responsive propertyInfoContainer">
+      <table class="table m-b-0">
+        <thead>
+          <tr>
+            <th>地层名</th>
+            <th>地下水类型</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <!-- end table-responsive -->
+  </div>
+  <!-- end panel-body -->
+</div>
+<!-- 结构树 -->
+<div id="structureTree" class="panel panel-inverse">
+  <div class="panel-heading">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#structureTree').toggle()"> <i class="fa fa-times fa-2x"
+          style="margin-top: -2px;"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-sitemap"></i> 结构树</h4>
+  </div>
+  <div class="panel-body">
+    <!-- begin nav-pills -->
+    <ul class="nav nav-pills" id="structureTreeTreeTab" style="padding-left: 30px;">
+      <li class="nav-items">
+        <a href="#modelTree" data-toggle="tab" class="nav-link active">
+          <span class="d-sm-block d-none">模型树</span>
+        </a>
+      </li>
+      <li class="nav-items">
+        <a href="#riskObjTree" data-toggle="tab" class="nav-link">
+          <span class="d-sm-block d-none">地层信息</span>
+        </a>
+      </li>
+    </ul>
+    <!-- end nav-pills -->
+    <!-- begin tab-content -->
+    <div class="tab-content" style="margin-top: -15px; margin-bottom: -15px;">
+      <div class="tab-pane fade show active table-responsive treeContainer" id="modelTree">
+      </div>
+      <div class="tab-pane fade table-responsive treeContainer" id="riskObjTree">
+      </div>
+    </div>
+    <!-- end tab-content -->
+  </div>
+</div>
+
+<!-- 剖切 -->
+<div id="section" class="panel panel-inverse">
+  <div class="panel-heading ui-sortable-handle">
+    <div class="panel-heading-btn">
+      <a href="#" onclick="$('#section').toggle();"><i class="fa fa-times fa-2x"></i></a>
+    </div>
+    <h4 class="panel-title"><i class="fa fa-columns"></i> 剖切</h4>
+  </div>
+
+  <div class="panel-body panel-form">
+
+    <div class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label class="m-b-2 text-inverse f-w-600 f-s-16" for="XXX"> X轴方向:
+          <input type="checkbox" checked="checked" id="XXX">
+        </label>
+        <!-- <input type="input"  id="x_control_id" class="form-control">   -->
+        <select class="form-control" id="x_select">
+          <option value="1">1</option>
+          <!-- <option value="2">2</option>
+            <option value="4">4</option> -->
+        </select>
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="x_Slider"></div>
+      </div>
+    </div>
+
+    <div class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label class="m-b-2 text-inverse f-w-600 f-s-16" for="y_control_id"> Y轴方向:
+          <input type="checkbox" checked="checked" id="YYY">
+        </label>
+        <!-- <input type="text"  id="y_control_id" class="form-control">     -->
+        <select class="form-control" id="y_select">
+          <option value="1">1</option>
+          <!-- <option value="2">2</option>
+            <option value="4">4</option> -->
+        </select>
+      </div>
+      <div class="slider-wrapper black-slider">
+        <div id="y_Slider"></div>
+      </div>
+    </div>
+
+    <div class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label class="m-b-2 text-inverse f-w-600 f-s-16" for="z_control_id"> Z轴方向:
+          <input type="checkbox" checked="checked" id="ZZZ">
+        </label>
+        <!-- <input type="text"  id="z_control_id" class="form-control">        -->
+        <select class="form-control" id="z_select">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+        </select>
+      </div>
+      <div class="slider-wrapper black-slider">
+
+        <div id="z_Slider"></div>
+      </div>
+    </div>
+
+    <div class="list-item-font padding-10">
+      <div class="margin-bottom-20">
+        <label class="m-b-2 text-inverse f-w-600 f-s-16" for="assist_id">辅助剖面</label>
+
+        <label class="checkbox-inline">
+          <input type="checkbox" value="" id="assist_id" checked="checked" onchange="assistChange();">
+        </label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- chart -->
+<div id="chart" style="background-color:rgba(0,0,0,0)">
+  <canvas id="chartId"></canvas>
+</div>
+<div class="chart_select">
+  <div class="chart_select_content">
+    <label>曲线类型 :</label>
+    <select class="custom-select" id="chart_select">
+      <option value="1">累计变化</option>
+      <option value="2">本次变化</option>
+      <option value="3">变化速率</option>
+    </select>
+    <label class="label-datepicker">选择日期 :</label>
+    <div class="div-datepicker">
+      <div class="input-group input-daterange">
+        <input type="text" style="height: 28px" class="form-control" name="start">
+        <span style="line-height: 15px" class="input-group-addon">至</span>
+        <input type="text" style="height: 28px" class="form-control" name="end">
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- timeline -->
+<div class="timeline-position">
+  <div class="timeline-container timeline-theme-2">
+    <div class="timeline timeline-small-box timeline-3">
+      <div class="theme-2" data-time="Ⅱ区步骤一"></div>
+      <div class="theme-6" data-time="Ⅱ区步骤二"></div>
+      <div class="theme-4" data-time="Ⅱ区步骤三"></div>
+      <div class="theme-1" data-time="Ⅱ区步骤四"></div>
+      <div class="theme-5" data-time="Ⅱ区步骤五"></div>
+      <div class="theme-1" data-time="Ⅱ区步骤六"></div>
+      <div class="theme-3" data-time="Ⅱ区步骤七"></div>
+      <div class="theme-4" data-time="Ⅲ区步骤一"></div>
+      <div class="theme-6" data-time="Ⅲ区步骤二"></div>
+      <div class="theme-3" data-time="Ⅲ区步骤三"></div>
+    </div>
+  </div>
+</div>
